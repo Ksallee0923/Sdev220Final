@@ -7,17 +7,17 @@ class PetFinderApp:
         self.root.title("TailTrail - Pet Finder")
         self.root.geometry("500x400")
         
-        # Simple list to store pets (instead of a database)
+
         self.pets = []
         
-        # Create widgets
+       
         self.create_widgets()
     
     def create_widgets(self):
-        # Main Label
+      
         tk.Label(self.root, text="Lost Pet Finder", font=('Arial', 20)).pack(pady=10)
         
-        # Search Frame
+       
         search_frame = tk.Frame(self.root)
         search_frame.pack(pady=10)
         
@@ -38,7 +38,7 @@ class PetFinderApp:
     
     def search_pets(self):
         search_term = self.search_entry.get().lower()
-        self.results_text.delete(1.0, tk.END)  # Clear previous results
+        self.results_text.delete(1.0, tk.END)
         
         if not search_term:
             self.results_text.insert(tk.END, "Please enter a search term")
@@ -59,11 +59,11 @@ class PetFinderApp:
                                        f"Location: {pet['location']}\n\n")
     
     def show_report_form(self):
-        # Simple popup form
+        
         form_window = tk.Toplevel(self.root)
         form_window.title("Report Lost Pet")
         
-        # Form fields
+       
         tk.Label(form_window, text="Pet Name:").grid(row=0, column=0, padx=5, pady=5)
         name_entry = tk.Entry(form_window, width=30)
         name_entry.grid(row=0, column=1, padx=5, pady=5)
@@ -81,7 +81,7 @@ class PetFinderApp:
         location_entry.grid(row=3, column=1, padx=5, pady=5)
         
         def submit_form():
-            # Get data from entries
+           
             new_pet = {
                 "name": name_entry.get(),
                 "breed": breed_entry.get(),
@@ -89,7 +89,7 @@ class PetFinderApp:
                 "location": location_entry.get()
             }
             
-            # Validate
+           
             if not all(new_pet.values()):
                 messagebox.showerror("Error", "Please fill all fields")
                 return
